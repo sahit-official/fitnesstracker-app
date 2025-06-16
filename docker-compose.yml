@@ -1,5 +1,5 @@
 services:
-  nginx:
-    image: nginx
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf
+  frontend:
+    build: ./fitness-app
+    ports:
+      - "80:80"
