@@ -12,7 +12,8 @@ RUN npm install
 COPY . .
 
 # Build the Angular app
-RUN npm run build --prod
+#RUN npm run build --prod
+RUN NODE_OPTIONS="--max-old-space-size=4096" npm run build --prod
 
 # Use Nginx to serve the built app
 FROM nginx:alpine
