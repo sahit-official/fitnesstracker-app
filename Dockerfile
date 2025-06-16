@@ -18,7 +18,7 @@ RUN NODE_OPTIONS="--max-old-space-size=4096" npm run build --prod
 
 # Use Nginx to serve the built app
 FROM nginx:alpine
-COPY --from=build /app/dist/angular-app /usr/share/nginx/html
+COPY --from=build /app/dist/fitness-tracker /usr/share/nginx/html
 
 # Expose port 80
 EXPOSE 80
