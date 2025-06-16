@@ -1,0 +1,48 @@
+<a href = "http://localhost:4200">Go back</a>
+<h1>Log an activity</h1>
+<form (ngSubmit)="createActivity()">
+    <label>Steps</label><br/>
+    <input [(ngModel)]="newActivity.steps" name = "steps" type = "number"/><br/>
+    <label>distance</label><br/>
+    <input [(ngModel)]="newActivity.distance" name = "distance" type = "number"/><br/>
+    <label>calories burned</label><br/>
+    <input [(ngModel)]="newActivity.caloriesBurned" name = "calories" type = "number"/><br/>
+    <label>user-id</label><br/>
+    <input [(ngModel)]="newActivity.userId" name = "userId" type = "number"/><br/>
+    <label>date</label><br/>
+    <input [(ngModel)]="newActivity.date" name = "date" type = "date"/><br/>
+    <button type = "submit">log</button>
+</form>
+
+<h1>Get activities by user id</h1>
+<hr/>
+<form (ngSubmit)="getAllActivitiesByUser()" name = "getActsForm">
+    <input [(ngModel)]="userId" name = "userId" type = "number" placeholder="user-id"/>
+    <button type = "submit">search</button>
+</form>
+<div *ngIf="hasNoData">
+    No activities available for this user
+</div>
+<div *ngIf="hasData">
+    <table border="1">
+        <thead>
+            <th>
+                ID
+            </th>
+            <th>steps</th>
+            <th>distance</th>
+            <th>calories</th>
+            <th>date</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let activity of activitiesByUser">
+                <td>{{activity.id}}</td>
+                <td>{{activity.steps}}</td>
+                <td>{{activity.distance}}</td>
+                <td>{{activity.caloriesBurned}}</td>
+                <td>{{activity.date}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<hr/>

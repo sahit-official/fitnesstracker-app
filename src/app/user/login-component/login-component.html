@@ -1,0 +1,21 @@
+<a href = "http://localhost:4200">Go back</a>
+<h1>Log in</h1>
+<form (ngSubmit)="login()">
+    <label>Enter user id</label><br/>
+    <input [(ngModel)]="userLogin.id" name = "id" type = "number"/><br/>
+    <label>Email</label><br/>
+    <input [(ngModel)]="userLogin.email" name = "email" type = "email" /><br/>
+    <label>Password</label><br/>
+    <input [(ngModel)]="userLogin.password" name = "password" type = "password" /><br/>
+    <button type = "submit">log in</button>
+</form>
+<div *ngIf="passwordCorrect">
+    login successful!<br/>
+    You can now access the below functionality<br/>
+    <a href = "http://localhost:4200/profile">Profile</a><br/>
+    <a href = "http://localhost:4200/log-activity">activity</a><br/>
+    <a href = "http://localhost:4200/goal-tracker">goals</a><br/>
+</div>
+<div *ngIf="passwordNotCorrect">
+    incorrect password
+</div>

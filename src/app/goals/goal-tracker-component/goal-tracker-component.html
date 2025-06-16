@@ -1,0 +1,41 @@
+<a href = "http://localhost:4200">Go back</a>
+<h1>Add goal</h1>
+<form (ngSubmit)="addGoal()">
+    <label>user id</label><br/>
+    <input [(ngModel)]="userId" name = "userId" type = "number"/><br/>
+    <label>Steps</label><br/>
+    <input [(ngModel)]="newGoal.targetSteps" name = "targetSteps" type = "number"/><br/>
+    <label>distance</label><br/>
+    <input [(ngModel)]="newGoal.targetCalories" name = "targetCalories" type = "number"/><br/>
+    <button type = "submit">add</button>
+</form>
+
+<h1>
+    Get goals by user id
+</h1>
+<hr/>
+<form (ngSubmit)="getGoalsByUser()" name="getGoalsForm">
+    <input [(ngModel)]="userIdTwo" name = "userId" type = "number" placeholder="user id"/>
+    <button type = "submit">search</button>
+</form>
+
+<div *ngIf="hasNoData">
+    no goals for this user
+</div>
+<div *ngIf="hasData">
+    <table border="1">
+        <thead>
+            <th>ID</th>
+            <th>target steps</th>
+            <th>target calories</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let goal of goalsByUser">
+                <td>{{goal.id}}</td>
+                <td>{{goal.targetSteps}}</td>
+                <td>{{goal.targetCalories}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<hr/>

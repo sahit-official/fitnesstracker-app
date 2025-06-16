@@ -1,0 +1,29 @@
+<a href = "http://localhost:4200">Go back</a>
+<h1>Get profile by user id</h1>
+<hr/>
+<form (ngSubmit)="getProfileByUserId()">
+    <input [(ngModel)]="userId" name = "userId" type = "number" placeholder="userId"/>
+    <button type = "submit">search</button>
+</form>
+<pre *ngIf="profileById">
+    <strong>ID: </strong> {{profileById.id}}
+    <strong>age: </strong> {{profileById.age}}
+    <strong>height: </strong> {{profileById.height}}
+    <strong>weight: </strong> {{profileById.weight}}
+</pre>
+<hr/>
+
+<br/>
+<br/>
+
+<form (ngSubmit)="updateProfile(id.value)" name = "updateForm">
+    <label>Enter user id</label>
+    <input #id type = "number" placeholder="enter user id"/><br/>
+    <label>age</label><br/>
+    <input [(ngModel)]="updatedProfile.age" name = "age" type = "number" placeholder="age"/><br/>
+    <label>height</label><br/>
+    <input [(ngModel)]="updatedProfile.height" name = "height" type = "number" placeholder="height"/><br/>
+    <label>weight</label><br/>
+    <input [(ngModel)]="updatedProfile.weight" name = "weight" type = "number" placeholder="weight"/><br/>
+    <button type = "submit">update</button>
+</form>

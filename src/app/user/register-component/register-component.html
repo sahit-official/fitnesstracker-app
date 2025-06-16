@@ -1,0 +1,17 @@
+<a href = "http://localhost:4200">Go back</a>
+<h1>Register as user</h1>
+<form (ngSubmit)="createUser()">
+    <label>Username</label><br/>
+    <input [(ngModel)]="newUser.userName" name = "userName" type = "text" placeholder="username"/><br/>
+    <label>email</label><br/>
+    <input [(ngModel)]="newUser.email" name = "email" type = "email" placeholder = email/><br/>
+    <label>password</label><br/>
+    <input [(ngModel)]="newUser.password" name = "password" type = "password" placeholder="password"/><br/>
+    <label>age</label><br/>
+    <input [(ngModel)]="newUser.profile.age" name = "age" type = "number" placeholder="age"/><br/>
+    <label>height</label><br/>
+    <input [(ngModel)]="newUser.profile.height" name = "height" type = "number" placeholder="height"/><br/>
+    <label>weight</label><br/>
+    <input [(ngModel)]="newUser.profile.weight" name = "weight" type = "number" placeholder="weight"/><br/>
+    <button type = "submit">register</button>
+</form>
